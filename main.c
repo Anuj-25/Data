@@ -25,7 +25,7 @@ int indexof(char a){
 int isterminal(char a){
     int i;
     for(i =5;i<9;i++){
-        if(set[i == a){
+        if(set[i] == a){
             return 1;
         }
     }
@@ -70,7 +70,7 @@ void rem_rep(char a[15]){
         for(j = i+1 ;j<strlen(a);j++){
             if(a[i] == a[j]){
                 for(k = j;k<strlen(a);k++){
-                    a[k] = a[k+1]
+                    a[k] = a[k+1];
                 }
             }
         }
@@ -83,27 +83,25 @@ void follow(int abc){
         for(j=0;j<strlen(rhs[i]);j++){
             if (rhs[i][j]==set[abc]){
                 if((j+1)!=strlen(rhs[i])){
-                    for(k=0;k<count[indexof(rhs[i])];k++){
+                    for(k=0;k<count[indexof(rhs[i][j+1])];k++){
                         afollow[abc][focount[abc]++]=afirst[indexof(rhs[i][j+1])][k];
                     }
 
                 }
                 else if (set[abc]!=lhs[i]){
-                    if(!focount[indexof(lhs[i])]){
+                    if(!focount[indexof(lhs[i])])
                         follow(indexof(lhs[i]));
                         for(k=0;k<focount[indexof(lhs[i])];k++){
                             afollow[abc][focount[abc]++]=afollow[indexof(lhs[i])][k];
                         }
-                    }
                 }
                 if (afollow[abc][focount[abc]-1]=='N'){
                     focount[abc]--;
-                    if (!focount[indexof(lhs[i])]){
+                    if (!focount[indexof(lhs[i])])
                         follow(indexof(lhs[i]));
                         for(k=0;k<focount[indexof(lhs[i])];k++){
                             afollow[abc][focount[abc]++]=afollow[indexof(lhs[i])][k];
                         }
-                    }
                 }
             }
         }
@@ -151,11 +149,11 @@ int main(){
             ind = indexof(ch);
             for(k=0;k<count[ind];k++){
                 if(afirst[ind][k]!= 'N'){
-                    prod[indexof(lhs[i])][indexof(afirst[ind][k]) - 5] = i+1
+                    prod[indexof(lhs[i])][indexof(afirst[ind][k]) - 5] = i+1;
                 }
                 else{
                     for(l=0;i<focount[indexof(lhs[i])];l++){
-                       prod[indexof(lhs[i])][indexof(afollow[indexof(lhs[i])][l] - 5] = i+1
+                       prod[indexof(lhs[i])][indexof(afollow[indexof(lhs[i])][l]) - 5] = i+1;
                     }
                 }
             }
@@ -171,7 +169,7 @@ int main(){
         stack[0] = '$';
         stack[1] = 'E';
         while(strcmp(stack,"$") != 0 || str[current] != '$'){
-            print("\n%s  \t\t",stack);
+            printf("\n%s  \t\t",stack);
             for(i = current;i<strlen(str);i++){
                 printf("%c",str[i]);
             }
